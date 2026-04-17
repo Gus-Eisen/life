@@ -1,3 +1,6 @@
 fn main() {
-    println!("Hello, world!");
+    #[cfg(not(target_arch = "wasm32"))]
+    {
+        main::maverick_main()
+    }
 }
