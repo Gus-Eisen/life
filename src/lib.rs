@@ -25,10 +25,10 @@ pub struct App;
 
 impl App {
     #![allow(clippy::new_ret_no_self)]
-    fn new(ctx: &mut Context, _assets: Assets) -> impl Drawable {
+    fn new(ctx: &mut Context, _assets: Assets) -> impl Drawable + use<> {
         let mut canvas = Canvas::new(ctx, CanvasMode::Landscape);
-        // canvas.add_scene(build_game_scene(ctx));
-        // canvas.load_scene("game");
+        canvas.add_scene(build_game_scene(ctx));
+        canvas.load_scene("game");
         canvas
     }
 }
